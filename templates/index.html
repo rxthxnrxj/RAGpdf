@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Chat Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h1>RAG Interface</h1>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be inserted here -->
+            </div>
+            <div class="input-area">
+                <div class="file-upload">
+                    <input type="file" id="pdf-upload" accept=".pdf" multiple>
+                    <button onclick="uploadFiles()">Upload PDFs</button>
+                </div>
+                <div class="message-input">
+                    <textarea id="user-input" placeholder="Type your message here..."></textarea>
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <div class="processing-status">Processing your file...</div>
+            <div id="processing-details">Creating embeddings...</div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
